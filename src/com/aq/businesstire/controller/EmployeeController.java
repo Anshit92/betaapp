@@ -112,7 +112,7 @@ public class EmployeeController {
 			msg=json.toString();
 		}
 			else {
-				throw new RuntimeException("papa Failed : HTTP error code : " + response.getStatus());	
+				throw new RuntimeException("daddy Failed : HTTP error code : " + response.getStatus());	
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
