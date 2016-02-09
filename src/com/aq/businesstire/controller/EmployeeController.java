@@ -34,6 +34,29 @@ public class EmployeeController {
 		return mav;
 		
 	}
+	@RequestMapping("/flyways")
+	public ModelAndView fly(HttpServletRequest request,HttpServletResponse responses)
+	{
+		String msg=null;
+		ModelAndView mav=new ModelAndView();
+		try {
+			Client client = Client.create();
+			WebResource webResource = client.resource("http://localhost:8080/EmployeeOrderRest/api/fly");
+			ClientResponse response = webResource.head();
+		if (response.getStatus() == 200){
+			msg="DB versioning done Successfully";
+					}
+			else {
+				throw new RuntimeException("Failed : HTTP error code : " + response.getStatus());	
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		mav.setViewName("welcome.jsp");
+		mav.addObject("msg",msg);
+		return mav;	
+	}
+	
 	@RequestMapping("/querythem")
 	public ModelAndView querythem(HttpServletRequest request,HttpServletResponse responses)
 	{
