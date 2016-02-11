@@ -46,7 +46,7 @@
 									<keep>true</keep>
 									<artifacts>
 										<artifact>
-                								 <file>${project.basedir}/target/${project.artifactId}.war</file>
+                								 <file>${project.basedir}/target/${project.artifactId}-${project.version}.war</file>
                 								 <dest>${project.artifactId}.war</dest>
                     								</artifact>
 										<artifact>
