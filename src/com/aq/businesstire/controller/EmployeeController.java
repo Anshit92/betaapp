@@ -82,6 +82,7 @@ public class EmployeeController {
 			msg="Employee entry inserted Successfully";
 					}
 			else {
+				msg="Cannot insert the records";
 				throw new RuntimeException("Failed : HTTP error code : " + response.getStatus());	
 			}
 		} catch (Exception e) {
