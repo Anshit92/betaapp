@@ -41,7 +41,7 @@ public class EmployeeController {
 		ModelAndView mav=new ModelAndView();
 		try {
 			Client client = Client.create();
-			WebResource webResource = client.resource("http://localhost:8080/EmployeeOrderRest/api/fly");
+			WebResource webResource = client.resource("http://13.76.128.106:8080/EmployeeOrderRest/api/fly");
 			ClientResponse response = webResource.head();
 		if (response.getStatus() == 200){
 			msg="DB versioning done Successfully";
@@ -103,7 +103,7 @@ public class EmployeeController {
 			Client client = Client.create();
 			String names = URLEncoder.encode (name,"UTF-8").replace("+", "%20");
 			String descr= URLEncoder.encode (desc,"UTF-8").replace("+", "%20");
-			WebResource webResource = client.resource("http://localhost:8080/EmployeeOrderRest/api/insertOrder/"+names+"/"+descr);
+			WebResource webResource = client.resource("http://13.76.128.106:8080/EmployeeOrderRest/api/insertOrder/"+names+"/"+descr);
 			ClientResponse response = webResource.head();
 		if (response.getStatus() == 200){
 			msg="Order entry inserted Successfully";
@@ -128,11 +128,11 @@ public class EmployeeController {
 		try {
 			Client client = Client.create();
 			String names = URLEncoder.encode (name,"UTF-8");
-			WebResource webResource = client.resource("http://localhost:8080/EmployeeOrderRest/api/display/"+table+"/"+names);
+			WebResource webResource = client.resource("http://13.76.128.106:8080/EmployeeOrderRest/api/display/"+table+"/"+names);
 			ClientResponse response = webResource.head();
 		if (response.getStatus() == 200){
 			
-			JSONObject json = readJsonFromUrl("http://localhost:8080/EmployeeOrderRest/api/display/"+table+"/"+names);
+			JSONObject json = readJsonFromUrl("http://13.76.128.106:8080/EmployeeOrderRest/api/display/"+table+"/"+names);
 			msg=json.toString();
 		}
 			else {
