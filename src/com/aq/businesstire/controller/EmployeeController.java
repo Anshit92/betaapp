@@ -76,7 +76,7 @@ public class EmployeeController {
 			Client client = Client.create();
 			String names = URLEncoder.encode (name,"UTF-8").replace("+", "%20");
 			String genders = URLEncoder.encode (gender,"UTF-8").replace("+", "%20");
-			WebResource webResource = client.resource("http://localhost:8080/EmployeeOrderRest/api/insertEmp/"+names+"/"+age+"/"+genders);
+			WebResource webResource = client.resource("http://13.76.128.106:8080/EmployeeOrderRest/api/insertEmp/"+names+"/"+age+"/"+genders);
 			ClientResponse response = webResource.head();
 		if (response.getStatus() == 200){
 			msg="Employee entry inserted Successfully";
